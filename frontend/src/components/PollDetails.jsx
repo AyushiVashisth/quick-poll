@@ -12,6 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import toast from "react-hot-toast";
+import { useSocket } from "../context/SocketContext";
 
 ChartJS.register(
   CategoryScale,
@@ -27,6 +28,7 @@ function PollDetails() {
   const navigate = useNavigate();
   const [poll, setPoll] = useState(null);
   const [votedOption, setVotedOption] = useState(null);
+  const socket = useSocket();
 
   useEffect(() => {
     loadPoll();
